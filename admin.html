@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width", initial-scale="1.0">
+  <meta name="description" content="This website belongs to IVO&TINA-IVANOV for renovation and construction">
+  <meta name="author" content="Adetule Kehinde">
+
+  <meta property="og:title" content="IVO&TINA-IVANOV: Renovation & Construction Family Business">
+  <meta property="og:description" content="transforming spaces into beautiful environments through expert building services with top-notch construction and renovation services"/>
+  <meta property="og:image" content="images/IVANOV.jpeg"/>
+  <meta property="og:image:alt" content="IVANOV description image"/>
+
+  <meta name="twitter:title" content="IVO&TINA-IVANOV: Renovation & Construction Family Business"/>
+  <meta name="twitter:description" content="transforming spaces into beautiful environments through expert building services with top-notch construction and renovation services"/>
+  <meta name="twitter:image" content="images/IVANOV.jpeg">
+  <meta name="twitter:image:alt" content="IVANOV description image"/>
+  <meta name="twitter:creator" content="Adetule Kehinde Emmanuel"/>
+  <link rel="icon" href="logo.png" type="image/png">
+  
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard">
+
+<script>
+  const adminToken = localStorage.getItem("adminToken");
+
+if (!adminToken) {
+  window.location.href = "admin-login.html";
+}
+
+fetch('https://ivanov.onrender.com/user-profile', {
+  headers: {
+    Authorization: "Bearer " + token
+  }
+})
+.then(res => res.json())
+.then(data => {
+  if (data.role !== "admin") {
+    localStorage.removeItem("token");
+    window.location.href = "admin-login.html";
+  }
+});
+
+</script>
+
+<h2>Admin - Service Requests</h2>
+
+<button class="btn" onclick="adminLogout()">Logout</button>
+
+<div class="table-container">
+  <table id="requestTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Budget</th>
+        <th>Service</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
