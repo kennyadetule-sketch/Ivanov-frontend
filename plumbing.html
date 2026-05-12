@@ -43,6 +43,13 @@
     <button id="submitBtn" class="btn" onclick="submitRequest('Plumbing', event)">
   Submit Request
 </button>
+<script>
+  if (localStorage.getItem("bonusUsed") === "true") {
+    document.getElementById("bonusBtn").disabled = true;
+  }
+</script>
+
+
 
     <!-- ADS -->
     <div class="ad-container">

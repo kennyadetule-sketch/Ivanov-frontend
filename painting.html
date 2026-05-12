@@ -41,6 +41,13 @@
     <button id="bonusBtn" class="btn" onclick="applyBonus()">
       Apply 20% Bonus
     </button>
+<script>
+  if (localStorage.getItem("bonusUsed") === "true") {
+    document.getElementById("bonusBtn").disabled = true;
+  }
+</script>
+
+
 
     <!-- SUBMIT -->
     <button id="submitBtn" class="btn" onclick="submitRequest('Painting', event)">

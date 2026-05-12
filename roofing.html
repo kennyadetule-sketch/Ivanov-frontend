@@ -39,6 +39,13 @@
       Apply 20% Bonus
     </button>
 
+<script>
+  if (localStorage.getItem("bonusUsed") === "true") {
+    document.getElementById("bonusBtn").disabled = true;
+  }
+</script>
+
+
     <!-- SUBMIT -->
     <button id="submitBtn" class="btn" onclick="submitRequest('Roofing', event)">
   Submit Request

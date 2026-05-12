@@ -137,41 +137,49 @@ function login() {
 // ================= BONUS SYSTEM =================
 
 function applyBonus() {
+
   let budget = document.getElementById("budget");
 
-  // Check if already used (persistent)
+  // Prevent reuse
   if (localStorage.getItem("bonusUsed") === "true") {
     alert("Bonus already used!");
     return;
   }
 
+  // Ensure budget exists
   if (!budget.value) {
     alert("Enter budget first");
     return;
   }
 
+  // ===== ANDROID APP =====
+  // Show rewarded AdMob ad
   if (window.Android) {
-  Android.showRewardedAd();
-  return;
-}
-  if (!proceed) return;
+    Android.showRewardedAd();
+    return;
+  }
 
-  let value = parseFloat(budget.value);
+  // ===== WEBSITE FALLBACK =====
+  // Apply directly if not inside app
+
+  let value = parseFloat(
+    budget.value.replace(/[^0-9.]/g, "")
+  );
 
   if (isNaN(value)) {
     alert("Enter a valid number");
     return;
   }
 
-  let newValue = value * 0.8;
-  budget.value = newValue.toFixed(2);
+  let discounted = value * 0.8;
 
-  // Save permanently
+  budget.value = discounted.toFixed(2);
+
   localStorage.setItem("bonusUsed", "true");
 
   document.getElementById("bonusBtn").disabled = true;
 
-  alert("Bonus applied successfully!");
+  alert("20% bonus applied successfully!");
 }
 
 // ================= SERVICE REQUEST =================
