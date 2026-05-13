@@ -10,7 +10,7 @@ function adminLogin() {
     return;
   }
 
-  fetch('https://ivanov-project.up.railway.app/admin-login', {
+  fetch('https://ivanov-project-production.up.railway.app/admin-login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

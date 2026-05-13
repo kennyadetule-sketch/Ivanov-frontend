@@ -66,7 +66,7 @@ function signup() {
   btn.textContent = "Creating Account...";
   btn.disabled = true;
 
-  fetch('https://ivanov-project.up.railway.app/signup', {
+  fetch('https://ivanov-project-production.up.railway.app/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -106,7 +106,7 @@ function login() {
   btn.textContent = "Logging in...";
   btn.disabled = true;
 
-  fetch('https://ivanov-project.up.railway.app/login', {
+  fetch('https://ivanov-project-production.up.railway.app/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
@@ -219,7 +219,7 @@ function submitRequest(service) {
   btn.textContent = "Submitting...";
   btn.disabled = true;
 
-  fetch('https://ivanov-project.up.railway.app/request', {
+  fetch('https://ivanov-project-production.up.railway.app/request', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)

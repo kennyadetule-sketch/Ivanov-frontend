@@ -18,7 +18,7 @@ if (window.location.pathname.includes("admin.html")) {
 // ================= FETCH REQUESTS =================
 
 function loadRequests() {
-  fetch('https://ivanov-project.up.railway.app/requests', {
+  fetch('https://ivanov-project-production.up.railway.app/requests', {
   headers: {
     Authorization: `Bearer ${localStorage.getItem("adminToken")}`
   }
