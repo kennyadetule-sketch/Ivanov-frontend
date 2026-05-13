@@ -231,7 +231,12 @@ function submitRequest(service) {
     })
     .then(result => {
       showSuccess(result.message || 'Request submitted successfully! We will contact you within 4–8 hours.');
-      document.querySelector('form')?.reset();
+      document.getElementById("name").value = "";
+document.getElementById("email").value = "";
+document.getElementById("phone").value = "";
+document.getElementById("address").value = "";
+document.getElementById("budget").value = "";
+document.getElementById("description").value = "";
     })
     .catch(err => {
       console.error(err);
