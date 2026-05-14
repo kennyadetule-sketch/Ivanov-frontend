@@ -24,7 +24,7 @@
 <body class="dashboard">
 
 <script>
-  const adminToken = localStorage.getItem("adminToken");
+const adminToken = localStorage.getItem("adminToken");
 
 if (!adminToken) {
   window.location.href = "admin-login.html";
@@ -32,17 +32,23 @@ if (!adminToken) {
 
 fetch('https://ivanov-project-production.up.railway.app/user-profile', {
   headers: {
-    Authorization: "Bearer " + token
+    Authorization: "Bearer " + adminToken
   }
 })
 .then(res => res.json())
 .then(data => {
+
   if (data.role !== "admin") {
-    localStorage.removeItem("token");
+
+    localStorage.removeItem("adminToken");
+
     window.location.href = "admin-login.html";
   }
+})
+.catch(() => {
+  localStorage.removeItem("adminToken");
+  window.location.href = "admin-login.html";
 });
-
 </script>
 
 <h2>Admin - Service Requests</h2>

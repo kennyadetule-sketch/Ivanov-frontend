@@ -2,7 +2,7 @@
 
 // ADMIN LOGIN
 function adminLogin() {
-  const username = document.getElementById("Username").value.trim();
+  const username = document.getElementById("adminUser").value.trim();
   const password = document.getElementById("adminPass").value.trim();
 
   if (!username || !password) {
